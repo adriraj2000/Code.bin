@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import {showErrMsg, showSuccessMsg} from '../../utils/notification/notification'
-/*import {dispatchLogin} from '../../../redux/actions/authAction'
+import {dispatchLogin} from '../../../store/actions/authAction'
 import {useDispatch} from 'react-redux'
-import { GoogleLogin } from 'react-google-login';
+/*import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';*/
 
 
@@ -17,7 +17,8 @@ const initialState = {
 
 function Login() {
     const [user, setUser] = useState(initialState)
-
+    const dispatch = useDispatch()
+    const history = useHistory()
     const {email, password, err, success} = user
 
     const handleChangeInput = e => {
@@ -33,6 +34,8 @@ function Login() {
             setUser({...user, err: '', success: res.data.msg})
 
             localStorage.setItem('firstLogin', true)
+            dispatch(dispatchLogin());
+            history.push("/")
 
         } catch (err) {
             err.response.data.msg && 
@@ -65,6 +68,10 @@ function Login() {
                     <Link to="/forgot_password">Forgot your password?</Link>
                 </div>
             </form>
+
+            <div className="hr">Or Login With</div>
+
+            <p>New Customer? <Link to="/register">Register</Link></p>
         </div>
     )
 }
