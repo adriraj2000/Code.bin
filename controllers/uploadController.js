@@ -9,7 +9,7 @@ cloudinary.config({
 
 
 
-const uploadController = {
+const uploadCtrl = {
     uploadAvatar: (req, res) => {
         try {
             const file = req.files.file;
@@ -38,4 +38,4 @@ const removeTmp = (path) => {
     })
 }
 
-module.exports = uploadController
+module.exports = uploadCtrl

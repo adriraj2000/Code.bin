@@ -37,3 +37,6 @@ button{
 @import url("./components/header/Header.css");
 
 @import url("./components/body/auth/auth.css");
+
+/* ----------------- Profile ------------------- */
+@import url("./components/body/profile/Profile.css");

@@ -43,7 +43,7 @@ function Header() {
             </div>
 
             <ul style={transForm}>
-                <li><Link to="/"><i className="fas fa-code"></i> Cart</Link></li>
+                <li><Link to="/"><i className="fas fa-code"></i> Code.bin</Link></li>
                 {
                     isLogged
                     ? userLink()
